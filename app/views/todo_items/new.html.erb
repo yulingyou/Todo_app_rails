@@ -1,0 +1,27 @@
+<h1>New Todo Item</h1>
+
+<%= form_for @todo_item do |f| %>
+  <% if @todo_item.errors.any? %>
+    <div class="alert alert-danger">
+      <ul>
+        <% @todo_item.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= f.label :description %>
+    <%= f.text_field :description, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :completed %>
+    <%= f.check_box :completed %>
+  </div>
+
+  <%= f.submit 'Save', class: 'btn btn-primary' %>
+<% end %>
+
+<%= link_to 'Back', todo_items_path %>

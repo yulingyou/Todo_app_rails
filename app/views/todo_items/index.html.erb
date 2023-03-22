@@ -1,0 +1,13 @@
+<h1>Todo List</h1>
+
+<% if @todo_items.any? %>
+  <ul>
+    <% @todo_items.each do |todo_item| %>
+      <li><%= todo_item.description %></li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>No todo items found.</p>
+<% end %>
+
+<%= link_to 'New Todo Item', new_todo_item_path %>
